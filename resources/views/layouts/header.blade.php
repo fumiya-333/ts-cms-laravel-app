@@ -1,3 +1,5 @@
 <header class="l-header">
-    @yield('header-title')
+    <div class="l-header__inner">
+        {{ $title }}
+    </div>
 </header>

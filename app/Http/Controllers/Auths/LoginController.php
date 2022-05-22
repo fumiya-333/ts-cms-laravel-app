@@ -9,7 +9,7 @@ namespace App\Http\Controllers\Auths;
 
 use App\Http\Controllers\Controller;
 use Redirect;
-use Auth;   
+use Auth;
 use App\Requests\Auths\LoginRequest;
 // use App\Models\User;
 // use App\Http\Controllers\Studys\StudyListController;

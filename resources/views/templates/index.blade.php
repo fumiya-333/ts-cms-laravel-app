@@ -11,23 +11,25 @@
 </head>
 <body>
 	@component('layouts.wrapper')
-		@section('wrapper')
+		@slot('wrapper')
 			@component('layouts.header')
-				@section('header-title', AppConstants::VIEW_TITLE)
+                @slot('title')
+                    {{ AppConstants::VIEW_TITLE }}
+                @endslot
 			@endcomponent
 			@component('layouts.main')
-				@section('main')
+				@slot('main')
 					@component('layouts.contents')
-						@section('contents')
+						@slot('contents')
 							@yield('contents')
-						@endsection
+						@endslot
 					@endcomponent
-				@endsection
+				@endslot
 			@endcomponent
 			@component('layouts.footer')
 			@endcomponent
 			@yield('script')
-		@endsection
+		@endslot
 	@endcomponent
 </body>
 </html>

@@ -1,6 +1,5 @@
 @charset "UTF-8";
 body {
-  color: #1B224C;
   font-size: 16px;
   font-weight: 500;
 }
@@ -30,10 +29,6 @@ html {
 
 body {
   margin: 0;
-}
-
-main {
-  display: block;
 }
 
 p,
@@ -273,9 +268,77 @@ th {
   font-weight: bold;
 }
 
+.l-footer {
+  width: 100%;
+}
+.l-footer__inner {
+  text-align: center;
+  height: 100%;
+  padding: 16px;
+  font-size: 14px;
+}
+
 .l-header {
   width: 100%;
-  height: 80px;
   background-color: black;
   color: white;
+}
+.l-header__inner {
+  height: 100%;
+  padding: 16px;
+  font-size: 28px;
+}
+
+.l-main {
+  display: block;
+}
+
+.c-copyright {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.c-form__inner label, .c-form__inner input, .c-form__inner select, .c-form__inner textarea {
+  display: block;
+}
+.c-form__inner label {
+  font-weight: bold;
+}
+
+.c-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 0.5px solid #AAA;
+  border-radius: 5px;
+}
+
+.c-btn-login {
+  text-align: center;
+  width: 200px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 31px;
+  background-color: #1B224C;
+  color: #FFF;
+}
+
+.p-login {
+  padding: 128px 0;
+}
+.p-login__inner {
+  width: 700px;
+  margin: 0 auto;
+}
+.p-login__inner__form__inner label {
+  padding: 42px 0 14px 0;
+}
+.p-login__inner__form__inner label:first-child {
+  padding: 0 0 14px 0;
+}
+.p-login__inner__form__inner input[type=submit] {
+  margin-top: 84px;
+}
+.p-login__inner__form__inner-btn-login {
+  margin: 0 auto;
 }

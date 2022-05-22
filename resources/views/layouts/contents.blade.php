@@ -1,3 +1,3 @@
 <section class="l-contents">
-	@yield('contents')
+	{{ $contents }}
 </section>

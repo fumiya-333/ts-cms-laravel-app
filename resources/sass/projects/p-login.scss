@@ -1,0 +1,23 @@
+.p-login {
+  padding: 128px 0;
+  &__inner {
+    width: 700px;
+    margin: 0 auto;
+    &__form {
+      &__inner {
+        label {
+          padding: 42px 0 14px 0;
+          &:first-child {
+            padding: 0 0 14px 0;
+          }
+        }
+        input[type=submit] {
+          margin-top: 84px;
+        }
+        &-btn-login {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

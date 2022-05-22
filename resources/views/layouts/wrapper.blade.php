@@ -1,3 +1,3 @@
 <div class="l-wrapper">
-	@yield('wrapper')
+	{{ $wrapper }}
 </div>

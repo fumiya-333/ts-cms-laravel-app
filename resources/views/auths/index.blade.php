@@ -7,7 +7,7 @@
 @endsection
 
 @section('contents')
-
+    @include('projects.login', ['url' => 'login', 'form_class' => 'p-login__inner__form', 'form_inner_class' => 'p-login__inner__form__inner'])
 @endsection
 
 @section('script')
