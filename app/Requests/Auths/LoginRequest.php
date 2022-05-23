@@ -2,7 +2,6 @@
 namespace App\Requests\Auths;
 
 use App\Requests\BaseRequest;
-use App\Utils\AppConstants;
 use App\Models\MUser;
 
 class LoginRequest extends BaseRequest

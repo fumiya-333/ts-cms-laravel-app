@@ -1,17 +1,6 @@
 <?php
-/**
- * 共通定数クラス
- *
- * @version 1.0
- * @author tsuji
- */
-namespace App\Utils;
+namespace App\Libs;
 
-/**
- * 共通定数クラス
- *
- * 共通で利用する定数を記載
- */
 class AppConstants {
 
     /********************************************

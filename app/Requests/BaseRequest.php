@@ -2,7 +2,6 @@
 namespace App\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Utils\AppConstants;
 
 class BaseRequest extends FormRequest
 {

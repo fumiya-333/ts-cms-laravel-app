@@ -212,8 +212,8 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'AppConstants' =>  App\Utils\AppConstants::class,
-        'DateUtil' =>  App\Utils\DateUtil::class,
+        'AppConstants' =>  App\Libs\AppConstants::class,
+        'DateUtil' =>  App\Libs\DateUtil::class,
     ])->toArray(),
 
 ];

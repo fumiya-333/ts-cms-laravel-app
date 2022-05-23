@@ -1,19 +1,8 @@
 <?php
-/**
- * 日付共通クラス
- *
- * @version 1.0
- * @author tsuji
- */
-namespace App\Utils;
+namespace App\Libs;
 
 use Carbon\Carbon;
 
-/**
- * 日付共通クラス
- *
- * 共通で利用する日付関数を記載
- */
 class DateUtil {
 
     /**
