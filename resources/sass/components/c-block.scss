@@ -3,8 +3,24 @@
   font-weight: bold;
 }
 
+.c-error {
+  color: #630015!important;
+  border-color: #FF0000!important;
+  background-color: #ffd9e1!important;
+  outline: solid 0.5px #FF0000!important;
+}
+
+.c-error-msg {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #FF0000;
+}
+
 .c-msg {
   &__inner {
-
+    &__login-error {
+      padding: 16px 8px;
+      margin-bottom: 24px;
+    }
   }
 }

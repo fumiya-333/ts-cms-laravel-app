@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Str;
 
 class Base extends Model
 {
@@ -28,6 +29,6 @@ class Base extends Model
     {
         parent::__construct($attributes);
 
-        $this->uuid = Uuid::uuid4()->toString();
+        $this->uuid = (string) Str::uuid();
     }
 }

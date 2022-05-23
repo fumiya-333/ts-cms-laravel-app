@@ -298,30 +298,38 @@ th {
   font-weight: bold;
 }
 
+.c-error {
+  color: #630015 !important;
+  border-color: #FF0000 !important;
+  background-color: #ffd9e1 !important;
+  outline: solid 0.5px #FF0000 !important;
+}
+
+.c-error-msg {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #FF0000;
+}
+
+.c-msg__inner__login-error {
+  padding: 16px 8px;
+  margin-bottom: 24px;
+}
+
 .c-form__inner label, .c-form__inner input, .c-form__inner select, .c-form__inner textarea {
   display: block;
 }
 .c-form__inner label {
   font-weight: bold;
 }
-.c-form__error input, .c-form__error textarea, .c-form__error :focus {
-  border: 0.5px solid #FF0000;
-  outline: solid 0.5px #FF0000;
-}
 
 .c-input {
   width: 100%;
   padding: 10px;
   font-size: 14px;
-  border: 0.5px solid #AAA;
+  border: 1px solid #AAA;
   border-radius: 5px;
-  outline: 0.5px solid #AAA;
-}
-
-.c-input-error {
-  margin-top: 12px;
-  font-size: 14px;
-  color: #FF0000;
+  outline: 1px solid #AAA;
 }
 
 .c-btn-login {
@@ -331,6 +339,7 @@ th {
   font-size: 16px;
   border-radius: 31px;
   background-color: #1B224C;
+  border: 0.5px solid #1B224C;
   color: #FFF;
 }
 

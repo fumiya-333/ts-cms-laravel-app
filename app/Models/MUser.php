@@ -59,6 +59,6 @@ class MUser extends Base
     {
         parent::__construct($attributes);
 
-        $this->attributes[self::COL_USER_ID] = $this->uuid;
+        $this->attributes[self::COL_USER_ID] = !isset($this->attributes[self::COL_USER_ID]) ?? $this->uuid;
     }
 }

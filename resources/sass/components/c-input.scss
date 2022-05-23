@@ -2,15 +2,9 @@
   width: 100%;
   padding: 10px;
   font-size: 14px;
-  border: 0.5px solid #AAA;
+  border: 1px solid #AAA;
   border-radius: 5px;
-  outline: 0.5px solid #AAA;
-}
-
-.c-input-error {
-  margin-top: 12px;
-  font-size: 14px;
-  color: #FF0000;
+  outline: 1px solid #AAA;
 }
 
 .c-btn-login {
@@ -20,5 +14,6 @@
   font-size: 16px;
   border-radius: 31px;
   background-color: #1B224C;
+  border: 0.5px solid #1B224C;
   color: #FFF;
 }

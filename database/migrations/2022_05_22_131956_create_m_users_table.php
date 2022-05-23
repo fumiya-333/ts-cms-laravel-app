@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('m_users', function (Blueprint $table) {
-            $table->string('user_id', 36)->primary();
+            $table->uuid('user_id')->primary();
             $table->string('name')->nullable()->comment('氏名');
             $table->string('email')->unique();
             $table->tinyInteger('email_verified')->default(0)->comment('0=未確認、1=確認済');
