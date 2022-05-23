@@ -1,13 +1,25 @@
-$breakpoint: (
-  sp: 'screen and (max-width: 767px)',
-  sp-and-tab: 'screen and (max-width: 1024px)',
-  tab: 'screen and (min-width: 768px) and (max-width: 1024px)',
-  tab-and-pc: 'screen and (min-width: 768px)',
-  pc: 'screen and (min-width: 1025px)'
-);
+.m-fadein {
+  animation: fadein 2s ease 0s 1 normal;
+}
 
-@mixin mq($bp) {
-  @media #{map-get($breakpoint, $bp)} {
-    @content;
+.m-fadeout {
+  animation: fadeout 2s ease 0s 1 forwards;
+}
+
+@keyframes fadein {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
   }
 }

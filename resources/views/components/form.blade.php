@@ -1,4 +1,4 @@
-{{ Form::open(array('url' => $url, 'class' => 'c-form ' . $form_class)) }}
+{{ Form::open(array('url' => $url, 'class' => 'c-form m-fadein ' . $form_class)) }}
     <div class="c-form__inner {{ $form_inner_class }}">
         {{ $form }}
     </div>
