@@ -304,6 +304,10 @@ th {
 .c-form__inner label {
   font-weight: bold;
 }
+.c-form__error input, .c-form__error textarea, .c-form__error :focus {
+  border: 0.5px solid #FF0000;
+  outline: solid 0.5px #FF0000;
+}
 
 .c-input {
   width: 100%;
@@ -311,6 +315,13 @@ th {
   font-size: 14px;
   border: 0.5px solid #AAA;
   border-radius: 5px;
+  outline: 0.5px solid #AAA;
+}
+
+.c-input-error {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #FF0000;
 }
 
 .c-btn-login {

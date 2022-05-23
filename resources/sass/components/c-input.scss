@@ -4,6 +4,13 @@
   font-size: 14px;
   border: 0.5px solid #AAA;
   border-radius: 5px;
+  outline: 0.5px solid #AAA;
+}
+
+.c-input-error {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #FF0000;
 }
 
 .c-btn-login {

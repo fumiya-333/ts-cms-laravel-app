@@ -1,28 +1,16 @@
 <?php
-/**
- * ログイン用コントローラー
- *
- * @version 1.0
- * @author tsuji
- */
 namespace App\Http\Controllers\Auths;
 
 use App\Http\Controllers\Controller;
 use Redirect;
 use Auth;
 use App\Requests\Auths\LoginRequest;
-// use App\Models\User;
-// use App\Http\Controllers\Studys\StudyListController;
+use App\Models\MUser;
 
-/**
- * ログイン用コントローラー
- *
- * ログイン処理を記載
- */
 class LoginController extends Controller
 {
     /** エラーメッセージ */
-    // const ERR_MSG = '<div class="font-weight-bold mb-3">ログインに失敗しました。</div><div class="small">メールアドレスもしくはパスワードが異なります。</div>';
+    const ERR_MSG = 'ログインに失敗しました。メールアドレスもしくはパスワードが異なります。';
 
     /**
      * 初期表示
@@ -39,12 +27,11 @@ class LoginController extends Controller
      * @param  LoginRequest $request リクエストパラメータ
      * @return view
      */
-    // public function login(LoginRequest $request){
-
-    //     if(Auth::attempt([User::COLUMN_EMAIL => $request->email, User::COLUMN_PASSWORD => $request->password])){
-    //         return redirect()->action([StudyListController::class, 'show']);
-    //     }else{
-    //         return Redirect::back()->with('error', self::ERR_MSG)->withInput();
-    //     }
-    // }
+    public function login(LoginRequest $request){
+        if(Auth::attempt([MUser::COL_EMAIL => $request->email, MUser::COL_PASSWORD => $request->password])){
+            return view('auths.index');
+        }else{
+            return Redirect::back()->with('error', self::ERR_MSG)->withInput();
+        }
+    }
 }

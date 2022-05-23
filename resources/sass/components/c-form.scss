@@ -7,4 +7,10 @@
       font-weight: bold;
     }
   }
+  &__error {
+    input, textarea, :focus {
+      border: 0.5px solid #FF0000;
+      outline: solid 0.5px #FF0000;
+    }
+  }
 }
