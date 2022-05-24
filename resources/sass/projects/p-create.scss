@@ -1,4 +1,4 @@
-.p-login {
+.p-create {
   padding: 128px 0;
   &__inner {
     width: 700px;
@@ -13,14 +13,9 @@
         }
         &__btn-area {
           margin-top: 84px;
-          &-btn-login, &-btn-create {
-            margin: 0 auto;
-          }
-          &-btn-login {
-            text-align: center;
-          }
           &-btn-create {
-            margin-top: 16px;
+            text-align: center;
+            margin: 0 auto;
           }
         }
       }

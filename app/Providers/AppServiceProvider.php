@@ -13,6 +13,25 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->bind(
+            \App\Interfaces\Models\MUserRepositoryInterface::class,
+            \App\Repositories\Models\MUserRepository::class
+        );
+
+        $this->app->bind(
+            \App\Interfaces\Models\TSendMailRepositoryInterface::class,
+            \App\Repositories\Models\TSendMailRepository::class
+        );
+
+        $this->app->bind(
+            \App\Interfaces\Emails\SendMailRepositoryInterface::class,
+            \App\Repositories\Emails\SendMailRepository::class
+        );
+
+        $this->app->bind(
+            \App\Interfaces\BusinessLogics\CreatePreRepositoryInterface::class,
+            \App\Repositories\BusinessLogics\CreatePreRepository::class
+        );
     }
 
     /**

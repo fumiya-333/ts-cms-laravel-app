@@ -7,13 +7,30 @@
   outline: 1px solid #AAA;
 }
 
-.c-btn-login {
-  text-align: center;
+.c-btn {
+  position: relative;
   width: 200px;
   height: 40px;
   font-size: 16px;
   border-radius: 31px;
+  span {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    transform : translateY(-50%);
+  }
+}
+
+.c-btn-login {
   background-color: #1B224C;
   border: 0.5px solid #1B224C;
+  color: #FFF;
+}
+
+.c-btn-create {
+  background-color: #F5A623;
+  border: 0.5px solid #F5A623;
   color: #FFF;
 }

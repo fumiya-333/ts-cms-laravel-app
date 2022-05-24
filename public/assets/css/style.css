@@ -359,7 +359,7 @@ th {
   margin-bottom: 24px;
 }
 
-.c-form__inner label, .c-form__inner input, .c-form__inner select, .c-form__inner textarea {
+.c-form__inner label, .c-form__inner input, .c-form__inner select, .c-form__inner textarea, .c-form__inner button, .c-form__inner a {
   display: block;
 }
 .c-form__inner label {
@@ -375,15 +375,53 @@ th {
   outline: 1px solid #AAA;
 }
 
-.c-btn-login {
-  text-align: center;
+.c-btn {
+  position: relative;
   width: 200px;
   height: 40px;
   font-size: 16px;
   border-radius: 31px;
+}
+.c-btn span {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  transform: translateY(-50%);
+}
+
+.c-btn-login {
   background-color: #1B224C;
   border: 0.5px solid #1B224C;
   color: #FFF;
+}
+
+.c-btn-create {
+  background-color: #F5A623;
+  border: 0.5px solid #F5A623;
+  color: #FFF;
+}
+
+.p-create {
+  padding: 128px 0;
+}
+.p-create__inner {
+  width: 700px;
+  margin: 0 auto;
+}
+.p-create__inner__form__inner label {
+  padding: 42px 0 14px 0;
+}
+.p-create__inner__form__inner label:first-child {
+  padding: 0 0 14px 0;
+}
+.p-create__inner__form__inner__btn-area {
+  margin-top: 84px;
+}
+.p-create__inner__form__inner__btn-area-btn-create {
+  text-align: center;
+  margin: 0 auto;
 }
 
 .p-login {
@@ -399,9 +437,15 @@ th {
 .p-login__inner__form__inner label:first-child {
   padding: 0 0 14px 0;
 }
-.p-login__inner__form__inner input[type=submit] {
+.p-login__inner__form__inner__btn-area {
   margin-top: 84px;
 }
-.p-login__inner__form__inner-btn-login {
+.p-login__inner__form__inner__btn-area-btn-login, .p-login__inner__form__inner__btn-area-btn-create {
   margin: 0 auto;
+}
+.p-login__inner__form__inner__btn-area-btn-login {
+  text-align: center;
+}
+.p-login__inner__form__inner__btn-area-btn-create {
+  margin-top: 16px;
 }

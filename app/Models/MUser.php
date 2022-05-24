@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use App\Models\Base;
@@ -10,6 +9,8 @@ class MUser extends Base
     const TABLE_NAME = 'm_users';
     /** ユーザーID */
     const COL_USER_ID = 'user_id';
+    /** 氏名 */
+    const COL_NAME = 'name';
     /** メールアドレス */
     const COL_EMAIL = 'email';
     /** メール認証フラグ */
@@ -29,8 +30,10 @@ class MUser extends Base
     /** ログイン保持用トークン */
     const COL_REMENBER_TOKEN = 'remember_token';
 
-    protected $fillable = [self::COL_EMAIL, self::COL_EMAIL_VERIFIED, self::COL_EMAIL_VERIFY_TOKEN, self::COL_EMAIL_VERIFIED_AT, self::COL_PASSWORD, self::COL_REMENBER_TOKEN, self::COL_EMAIL_PASSWORD_RESET_VERIFIED, self::COL_EMAIL_PASSWORD_RESET_TOKEN, self::COL_EMAIL_PASSWORD_RESET_AT];
+    protected $fillable = [self::COL_USER_ID, self::COL_NAME, self::COL_EMAIL, self::COL_EMAIL_VERIFIED, self::COL_EMAIL_VERIFY_TOKEN, self::COL_EMAIL_VERIFIED_AT, self::COL_PASSWORD, self::COL_REMENBER_TOKEN, self::COL_EMAIL_PASSWORD_RESET_VERIFIED, self::COL_EMAIL_PASSWORD_RESET_TOKEN, self::COL_EMAIL_PASSWORD_RESET_AT];
 
+    /** 氏名（日本語） */
+    const COL_JP_NAME = '氏名';
     /** メールアドレス（日本語） */
     const COL_JP_EMAIL = 'メールアドレス';
     /** パスワード（日本語） */
@@ -48,17 +51,4 @@ class MUser extends Base
 
     /** プライマリーキー */
     protected $primaryKey = self::COL_USER_ID;
-
-    /**
-     * コンストラクタ
-     *
-     * @param  mixed $attributes
-     * @return void
-     */
-    public function __construct(array $attributes = [])
-    {
-        parent::__construct($attributes);
-
-        $this->attributes[self::COL_USER_ID] = !isset($this->attributes[self::COL_USER_ID]) ?? $this->uuid;
-    }
 }

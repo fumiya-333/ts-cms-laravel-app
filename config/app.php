@@ -214,6 +214,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'AppConstants' =>  App\Libs\AppConstants::class,
         'DateUtil' =>  App\Libs\DateUtil::class,
+        'StrUtil' =>  App\Libs\StrUtil::class,
     ])->toArray(),
 
 ];

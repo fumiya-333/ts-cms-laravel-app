@@ -13,7 +13,10 @@
                 @if ($errors->has('password'))
                     <div class="c-error-msg">{{$errors->first('password')}}</div>
                 @endif
-                <input type="submit" name="login" value="ログイン" class="c-input c-btn-login p-login__inner__form__inner-btn-login">
+                <div class="p-login__inner__form__inner__btn-area">
+                    <input type="submit" name="login" value="ログイン" class="c-btn c-btn-login p-login__inner__form__inner__btn-area-btn-login">
+                    <a href="{{ url(AppConstants::ROOT_DIR_USERS_CREATE_PRE) }}" class="c-btn c-btn-create p-login__inner__form__inner__btn-area-btn-create"><span>新規登録</span></a>
+                </div>
             @endslot
         @endcomponent
     </div>
