@@ -8,7 +8,7 @@
 }
 
 @mixin flexbox($wrap: nowrap, $justify: flex-start, $align: stretch, $flow: row nowrap) {
-  display: flex;
+  display: flex!important;
   -webkit-flex-wrap : $wrap!important;
   -ms-flex-wrap: $wrap!important;
   flex-wrap: $wrap!important;

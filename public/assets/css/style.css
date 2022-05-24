@@ -341,24 +341,6 @@ th {
   font-weight: bold;
 }
 
-.c-error {
-  color: #630015 !important;
-  border-color: #FF0000 !important;
-  background-color: #ffd9e1 !important;
-  outline: solid 0.5px #FF0000 !important;
-}
-
-.c-error-msg {
-  margin-top: 12px;
-  font-size: 14px;
-  color: #FF0000;
-}
-
-.c-msg__inner__login-error {
-  padding: 16px 8px;
-  margin-bottom: 24px;
-}
-
 .c-form__inner label, .c-form__inner input, .c-form__inner select, .c-form__inner textarea, .c-form__inner button, .c-form__inner a {
   display: block;
 }
@@ -401,6 +383,32 @@ th {
   background-color: #F5A623;
   border: 0.5px solid #F5A623;
   color: #FFF;
+}
+
+.c-link {
+  color: #0000EE;
+  text-decoration: underline;
+}
+.c-link:visited {
+  color: #551A8B;
+  text-decoration: underline;
+}
+.c-link:active {
+  color: #FF0000;
+  text-decoration: underline;
+}
+
+.u-error-msg {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #FF0000;
+}
+
+.c-msg__inner__error, .c-msg__inner__info {
+  padding: 12px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  line-height: 2;
 }
 
 .p-create {
@@ -448,4 +456,30 @@ th {
 }
 .p-login__inner__form__inner__btn-area-btn-create {
   margin-top: 16px;
+}
+.p-login__inner__form__inner__password-reset-link {
+  margin-top: 24px;
+  font-size: 14px;
+}
+
+.u-flex-end {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  justify-content: flex-end;
+  align-items: stretch;
+  flex-flow: row nowrap;
+}
+
+.u-error {
+  color: #630015 !important;
+  border-color: #FF0000 !important;
+  background-color: #ffd9e1 !important;
+  outline: solid 0.5px #FF0000 !important;
+}
+
+.u-info {
+  color: #5b8ceb !important;
+  border-color: #5b8ceb !important;
+  background-color: #def0ff !important;
+  outline: solid 0.5px #def0ff !important;
 }

@@ -30,4 +30,24 @@ class MUserRepository implements MUserRepositoryInterface
             MUser::COL_EMAIL_VERIFIED_AT => $email_verified_at,
         ]);
     }
+
+    /**
+     * メールアドレスに紐づくユーザー情報取得
+     *
+     * @param  mixed $email メールアドレス
+     * @return ユーザー情報
+     */
+    public function emailFindUser($email){
+        return MUser::emailFindUser($email);
+    }
+
+    /**
+     * メールアドレス存在チェック
+     *
+     * @param  mixed $email メールアドレス
+     * @return void 存在チェックフラグ
+     */
+    public function existsEmail($email){
+        return MUser::existsEmail($email);
+    }
 }

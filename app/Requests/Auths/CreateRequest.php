@@ -3,20 +3,10 @@ namespace App\Requests\Auths;
 
 use App\Requests\UserRequest;
 use App\Models\MUser;
+use App\Rules\EmailRule;
 
 class CreateRequest extends UserRequest
 {
-    /**
-     * コンストラクタ
-     *
-     * @return void
-     */
-    public function __construct() {
-        $this->req_rules[MUser::COL_NAME] = self::VALIDATION_RULE_KEY_REQUIRED;
-        $this->req_messages[MUser::COL_NAME . '.' . self::VALIDATION_RULE_KEY_REQUIRED] = self::VALIDATION_ATTRIBUTE . self::ERR_MSG_REQUIRED;
-        $this->req_attributes[MUser::COL_NAME] = MUser::COL_JP_NAME;
-	}
-
     /**
      * ユーザーがこのリクエストの権限を持っているかを判断する
      *
@@ -32,6 +22,8 @@ class CreateRequest extends UserRequest
      * @return array
      */
     public function rules(){
+        $this->req_rules[MUser::COL_EMAIL] =  [self::VALIDATION_RULE_KEY_REQUIRED, self::VALIDATION_RULE_KEY_EMAIL, new EmailRule($this->input(MUser::COL_EMAIL))];
+        $this->req_rules[MUser::COL_NAME] = self::VALIDATION_RULE_KEY_REQUIRED;
         return $this->req_rules;
     }
 
@@ -41,6 +33,8 @@ class CreateRequest extends UserRequest
      * @return array
      */
     public function messages(){
+        $this->req_messages[MUser::COL_NAME . '.' . self::VALIDATION_RULE_KEY_REQUIRED] = self::VALIDATION_ATTRIBUTE . self::ERR_MSG_REQUIRED;
+        $this->req_messages[MUser::COL_EMAIL . '.' . self::VALIDATION_RULE_KEY_EMAIL] = '有効な' . self::VALIDATION_ATTRIBUTE . self::ERR_MSG_REQUIRED;
         return $this->req_messages;
     }
 
@@ -50,6 +44,7 @@ class CreateRequest extends UserRequest
      * @return array
      */
     public function attributes(){
+        $this->req_attributes[MUser::COL_NAME] = MUser::COL_JP_NAME;
         return $this->req_attributes;
     }
 }

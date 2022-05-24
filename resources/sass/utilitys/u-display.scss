@@ -1,0 +1,3 @@
+.u-flex-end {
+  @include flexbox(nowrap, flex-end, stretch, row nowrap);
+}

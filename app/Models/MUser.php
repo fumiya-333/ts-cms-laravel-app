@@ -51,4 +51,27 @@ class MUser extends Base
 
     /** プライマリーキー */
     protected $primaryKey = self::COL_USER_ID;
+
+
+    /**
+     * メールアドレスに紐づくユーザー情報取得
+     *
+     * @param  mixed $query クエリオブジェクト
+     * @param  mixed $email メールアドレス
+     * @return ユーザー情報
+     */
+    public function scopeEmailFindUser($query, $email){
+        return $query->where(self::COL_EMAIL, $email)->first();
+    }
+
+    /**
+     * メールアドレス存在チェック
+     *
+     * @param  mixed $query クエリオブジェクト
+     * @param  mixed $email メールアドレス
+     * @return 存在チェックフラグ
+     */
+    public function scopeExistsEmail($query, $email){
+        return $query->where(self::COL_EMAIL, $email)->exists();
+    }
 }
