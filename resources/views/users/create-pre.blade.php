@@ -7,7 +7,7 @@
 @endsection
 
 @section('contents')
-    @include('projects.auths.createPre')
+    @include('projects.users.create-pre')
 @endsection
 
 @section('script')

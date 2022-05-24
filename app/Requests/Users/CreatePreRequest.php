@@ -1,11 +1,11 @@
 <?php
-namespace App\Requests\Auths;
+namespace App\Requests\Users;
 
 use App\Requests\UserRequest;
 use App\Models\MUser;
 use App\Rules\EmailRule;
 
-class CreateRequest extends UserRequest
+class CreatePreRequest extends UserRequest
 {
     /**
      * ユーザーがこのリクエストの権限を持っているかを判断する

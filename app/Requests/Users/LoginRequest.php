@@ -1,5 +1,5 @@
 <?php
-namespace App\Requests\Auths;
+namespace App\Requests\Users;
 
 use App\Requests\UserRequest;
 

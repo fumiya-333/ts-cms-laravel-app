@@ -1,11 +1,12 @@
 <?php
-namespace App\Http\Controllers\Auths;
+namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
 use Redirect;
 use Auth;
-use App\Requests\Auths\LoginRequest;
+use App\Requests\Users\LoginRequest;
 use App\Models\MUser;
+use App\Libs\AppConstants;
 
 class LoginController extends Controller
 {
@@ -18,7 +19,7 @@ class LoginController extends Controller
      * @return view
      */
     public function show(){
-        return view('auths.index');
+        return view(AppConstants::VIEW_PATH_USERS_INDEX);
     }
 
     /**
@@ -29,7 +30,7 @@ class LoginController extends Controller
      */
     public function login(LoginRequest $request){
         if(Auth::attempt([MUser::COL_EMAIL => $request->email, MUser::COL_PASSWORD => $request->password])){
-            return view('auths.index');
+            return view(AppConstants::VIEW_PATH_USERS_INDEX);
         }else{
             return Redirect::back()->with('error', self::ERR_MSG)->withInput();
         }

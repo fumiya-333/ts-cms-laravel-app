@@ -2,9 +2,9 @@
 
 namespace App\Interfaces\BusinessLogics;
 
-use App\Requests\Auths\CreateRequest;
+use App\Requests\Users\CreatePreRequest;
 
 interface CreatePreRepositoryInterface
 {
-    public function exec(CreateRequest $request);
+    public function exec(CreatePreRequest $request);
 }

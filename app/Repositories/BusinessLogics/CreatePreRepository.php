@@ -7,7 +7,7 @@ use App\Interfaces\Models\MUserRepositoryInterface;
 use App\Interfaces\Emails\SendMailRepositoryInterface;
 use App\Interfaces\Models\TSendMailRepositoryInterface;
 use App\Interfaces\BusinessLogics\CreatePreRepositoryInterface;
-use App\Requests\Auths\CreateRequest;
+use App\Requests\Users\CreatePreRequest;
 use App\Libs\AppConstants;
 use App\Libs\StrUtil;
 use App\Models\MUser;
@@ -33,7 +33,7 @@ class CreatePreRepository implements CreatePreRepositoryInterface
      * @param  mixed $request
      * @return void
      */
-    public function exec(CreateRequest $request) {
+    public function exec(CreatePreRequest $request) {
 
         DB::transaction(function () use ($request) {
 
@@ -50,7 +50,7 @@ class CreatePreRepository implements CreatePreRepositoryInterface
 
             $variables = [MUser::COL_EMAIL => $m_user->email, MUser::COL_EMAIL_VERIFY_TOKEN => $m_user->email_verify_token];
             // メール送信処理実行
-            $email = $this->send_mail_repository->exec($m_user->email, TSendMail::CREATE_PRE_EMAIL_SUBJECT, $variables, 'mails.createPre');
+            $email = $this->send_mail_repository->exec($m_user->email, TSendMail::CREATE_PRE_EMAIL_SUBJECT, $variables, 'emails.create-pre');
 
             // メール送信情報登録
             $this->t_send_mail_repository->create(StrUtil::getUuid(), $m_user->email, TSendMail::CREATE_PRE_EMAIL_SUBJECT, $email->getMessage());
