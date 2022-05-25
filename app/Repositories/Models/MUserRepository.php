@@ -50,4 +50,26 @@ class MUserRepository implements MUserRepositoryInterface
     public function existsEmail($email){
         return MUser::existsEmail($email);
     }
+
+    /**
+     * 本登録チェック
+     *
+     * @param  mixed $email メールアドレス
+     * @return void 本登録フラグ
+     */
+    public function isEmailVerified($email){
+        return MUser::isEmailVerified($email);
+    }
+
+    /**
+     * メールアドレスURLトークンの更新
+     *
+     * @param  mixed $m_user ユーザー情報
+     * @param  mixed $request リクエストパラメータ
+     * @return void
+     */
+    public function updateEmailVerified($m_user, $request){
+        $m_user->email_verified = MUser::EMAIL_VERIFIED_ON;
+        return $m_user->save();
+    }
 }

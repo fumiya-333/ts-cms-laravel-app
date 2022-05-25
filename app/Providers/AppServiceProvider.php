@@ -32,6 +32,11 @@ class AppServiceProvider extends ServiceProvider
             \App\Interfaces\BusinessLogics\CreatePreRepositoryInterface::class,
             \App\Repositories\BusinessLogics\CreatePreRepository::class
         );
+
+        $this->app->bind(
+            \App\Interfaces\BusinessLogics\CreateRepositoryInterface::class,
+            \App\Repositories\BusinessLogics\CreateRepository::class
+        );
     }
 
     /**

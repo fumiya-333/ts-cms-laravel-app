@@ -30,15 +30,21 @@ class AppConstants {
     const ROOT_DIR_CREATE = 'create';
     /** 新規作成（仮） */
     const ROOT_DIR_CREATE_PRE = self::ROOT_DIR_CREATE . '-pre';
+    /** パスワードリセット */
+    const ROOT_DIR_PASSWORD_RESET = 'password-reset';
     /** ユーザー新規作成（仮登録） */
     const ROOT_DIR_USERS_CREATE_PRE = self::ROOT_DIR_USERS . '/'. self::ROOT_DIR_CREATE_PRE;
     /** ユーザー新規作成 */
     const ROOT_DIR_USERS_CREATE = self::ROOT_DIR_USERS . '/'. self::ROOT_DIR_CREATE;
+    /** ユーザー新規作成 */
+    const ROOT_DIR_USERS_PASSWORD_RESET = self::ROOT_DIR_USERS . '/'. self::ROOT_DIR_PASSWORD_RESET;
 
     /** ビュー インデックス */
     const VIEW_PATH_INDEX = 'index';
     /** ビュー ユーザー新規作成（仮登録） */
     const VIEW_PATH_USERS_CREATE_PRE = self::ROOT_DIR_USERS . '.'. self::ROOT_DIR_CREATE_PRE;
+    /** ビュー ユーザー新規作成 */
+    const VIEW_PATH_USERS_CREATE = self::ROOT_DIR_USERS . '.'. self::ROOT_DIR_CREATE;
     /** ビュー インデックス */
     const VIEW_PATH_USERS_INDEX = self::ROOT_DIR_USERS . '.'. self::VIEW_PATH_INDEX;
 }

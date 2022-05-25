@@ -65,6 +65,28 @@ class MUser extends Base
     }
 
     /**
+     * メールアドレスURLトークンに紐づくユーザー情報取得
+     *
+     * @param  mixed $query クエリオブジェクト
+     * @param  mixed $email_verify_token メールアドレスURLトークン
+     * @return ユーザー情報
+     */
+    public function scopeEmailVerifyTokenFindUser($query, $email_verify_token){
+        return $query->where(self::COL_EMAIL_VERIFY_TOKEN, $email_verify_token)->first();
+    }
+
+    /**
+     * パスワードリセットメールアドレスURLトークンに紐づくユーザー情報取得
+     *
+     * @param  mixed $query クエリオブジェクト
+     * @param  mixed $email_password_reset_token パスワードリセットメールアドレスURLトークン
+     * @return ユーザー情報
+     */
+    public function scopeEmailPasswordResetTokenFindUser($query, $email_password_reset_token){
+        return $query->where(self::COL_EMAIL_PASSWORD_RESET_TOKEN, $email_password_reset_token)->first();
+    }
+
+    /**
      * メールアドレス存在チェック
      *
      * @param  mixed $query クエリオブジェクト
@@ -73,5 +95,20 @@ class MUser extends Base
      */
     public function scopeExistsEmail($query, $email){
         return $query->where(self::COL_EMAIL, $email)->exists();
+    }
+
+    /**
+     * 本登録チェック
+     *
+     * @param  mixed $query クエリオブジェクト
+     * @param  mixed $user_id
+     * @return void
+     */
+    public function scopeIsEmailVerified($query, $email){
+        return $query->where([
+            self::COL_EMAIL_PASSWORD_RESET_VERIFIED => self::EMAIL_PASSWORD_RESET_VERIFIED_ON,
+            self::COL_EMAIL => $email
+        ])
+        ->exists();
     }
 }
