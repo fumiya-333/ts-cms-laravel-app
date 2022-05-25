@@ -37,6 +37,11 @@ class AppServiceProvider extends ServiceProvider
             \App\Interfaces\BusinessLogics\CreateRepositoryInterface::class,
             \App\Repositories\BusinessLogics\CreateRepository::class
         );
+
+        $this->app->bind(
+            \App\Interfaces\BusinessLogics\PasswordResetPreRepositoryInterface::class,
+            \App\Repositories\BusinessLogics\PasswordResetPreRepository::class
+        );
     }
 
     /**

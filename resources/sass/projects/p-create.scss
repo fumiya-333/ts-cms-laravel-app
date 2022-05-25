@@ -3,22 +3,5 @@
   &__inner {
     width: 700px;
     margin: 0 auto;
-    &__form {
-      &__inner {
-        label {
-          padding: 42px 0 14px 0;
-          &:first-child {
-            padding: 0 0 14px 0;
-          }
-        }
-        &__btn-area {
-          margin-top: 84px;
-          &-btn-create {
-            text-align: center;
-            margin: 0 auto;
-          }
-        }
-      }
-    }
   }
 }

@@ -379,7 +379,7 @@ th {
   color: #FFF;
 }
 
-.c-btn-create {
+.c-btn-create, .c-btn-password-reset-pre {
   background-color: #F5A623;
   border: 0.5px solid #F5A623;
   color: #FFF;
@@ -411,24 +411,32 @@ th {
   line-height: 2;
 }
 
+.p-create-pre {
+  padding: 128px 0;
+}
+.p-create-pre__inner {
+  width: 700px;
+  margin: 0 auto;
+}
+.p-create-pre__inner__form__inner label {
+  padding: 42px 0 14px 0;
+}
+.p-create-pre__inner__form__inner label:first-child {
+  padding: 0 0 14px 0;
+}
+.p-create-pre__inner__form__inner__btn-area {
+  margin-top: 84px;
+}
+.p-create-pre__inner__form__inner__btn-area-btn-create {
+  text-align: center;
+  margin: 0 auto;
+}
+
 .p-create {
   padding: 128px 0;
 }
 .p-create__inner {
   width: 700px;
-  margin: 0 auto;
-}
-.p-create__inner__form__inner label {
-  padding: 42px 0 14px 0;
-}
-.p-create__inner__form__inner label:first-child {
-  padding: 0 0 14px 0;
-}
-.p-create__inner__form__inner__btn-area {
-  margin-top: 84px;
-}
-.p-create__inner__form__inner__btn-area-btn-create {
-  text-align: center;
   margin: 0 auto;
 }
 
@@ -460,6 +468,27 @@ th {
 .p-login__inner__form__inner__password-reset-link {
   margin-top: 24px;
   font-size: 14px;
+}
+
+.p-password-reset-pre {
+  padding: 128px 0;
+}
+.p-password-reset-pre__inner {
+  width: 700px;
+  margin: 0 auto;
+}
+.p-password-reset-pre__inner__form__inner label {
+  padding: 42px 0 14px 0;
+}
+.p-password-reset-pre__inner__form__inner label:first-child {
+  padding: 0 0 14px 0;
+}
+.p-password-reset-pre__inner__form__inner__btn-area {
+  margin-top: 84px;
+}
+.p-password-reset-pre__inner__form__inner__btn-area-btn-password-reset-pre {
+  text-align: center;
+  margin: 0 auto;
 }
 
 .u-flex-end {

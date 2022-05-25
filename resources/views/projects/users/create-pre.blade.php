@@ -1,7 +1,7 @@
-<div class="p-create">
-    <div class="p-create__inner">
+<div class="p-create-pre">
+    <div class="p-create-pre__inner">
         @include('components.msg')
-        @component('components.form', ['url' => AppConstants::ROOT_DIR_USERS_CREATE_PRE, 'form_class' => 'p-create__inner__form', 'form_inner_class' => 'p-create__inner__form__inner'])
+        @component('components.form', ['url' => AppConstants::ROOT_DIR_USERS_CREATE_PRE, 'form_class' => 'p-create-pre__inner__form', 'form_inner_class' => 'p-create-pre__inner__form__inner'])
             @slot('form')
                 <label>氏名</label>
                 <input type="text" name="name" class="c-input {{ $errors->has('name') ? 'u-error' : '' }}" value="{{ old('name') }}" placeholder="浦島 太郎">
@@ -18,8 +18,8 @@
                 @if ($errors->has('password'))
                     <div class="u-error-msg">{{$errors->first('password')}}</div>
                 @endif
-                <div class="p-create__inner__form__inner__btn-area">
-                    <input type="submit" name="create" value="新規登録"  class="c-btn c-btn-create p-create__inner__form__inner__btn-area-btn-create">
+                <div class="p-create-pre__inner__form__inner__btn-area">
+                    <input type="submit" name="create" value="新規登録"  class="c-btn c-btn-create p-create-pre__inner__form__inner__btn-area-btn-create">
                 </div>
             @endslot
         @endcomponent
