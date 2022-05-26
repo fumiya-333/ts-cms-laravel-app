@@ -12,7 +12,6 @@ use App\Libs\AppConstants;
 use App\Libs\StrUtil;
 use App\Models\MUser;
 use App\Models\TSendMail;
-use Carbon\Carbon;
 
 class PasswordResetPreRepository implements PasswordResetPreRepositoryInterface
 {
@@ -28,7 +27,7 @@ class PasswordResetPreRepository implements PasswordResetPreRepositoryInterface
     }
 
     /**
-     * 仮登録処理実行
+     * パスワードリセット処理実行
      *
      * @param  mixed $request
      * @return void
@@ -37,23 +36,18 @@ class PasswordResetPreRepository implements PasswordResetPreRepositoryInterface
 
         DB::transaction(function () use ($request) {
 
-            // ユーザー情報登録
-            $m_user = $this->m_user_repository->create(
-                StrUtil::getUuid(),
-                $request->name,
-                $request->email,
-                bcrypt($request->password),
-                MUser::EMAIL_VERIFIED_OFF,
-                hash(AppConstants::HASH_KEY_SHA256, uniqid(rand(), true)),
-                new Carbon(),
-            );
+            // メールアドレスに紐づくユーザー情報取得
+            $m_user = $this->m_user_repository->emailFindUser($request->email);
 
-            $variables = [MUser::COL_EMAIL => $m_user->email, MUser::COL_EMAIL_VERIFY_TOKEN => $m_user->email_verify_token];
+            // パスワードリセット情報登録
+            $this->m_user_repository->updatePasswordReset($m_user, MUser::EMAIL_PASSWORD_RESET_VERIFIED_OFF, StrUtil::getHash());
+
             // メール送信処理実行
-            $email = $this->send_mail_repository->exec($m_user->email, TSendMail::CREATE_PRE_EMAIL_SUBJECT, $variables, 'emails.create-pre');
+            $variables = [MUser::COL_EMAIL => $m_user->email, MUser::COL_EMAIL_PASSWORD_RESET_TOKEN  => $m_user->email_password_reset_token];
+            $email = $this->send_mail_repository->exec($m_user->email, TSendMail::PASSWORD_RESET_EMAIL_SUBJECT, $variables, 'emails.password-reset-pre');
 
             // メール送信情報登録
-            $this->t_send_mail_repository->create(StrUtil::getUuid(), $m_user->email, TSendMail::CREATE_PRE_EMAIL_SUBJECT, $email->getMessage());
+            $this->t_send_mail_repository->create(StrUtil::getUuid(), $m_user->email, TSendMail::PASSWORD_RESET_EMAIL_SUBJECT, $email->getMessage());
 
         });
     }

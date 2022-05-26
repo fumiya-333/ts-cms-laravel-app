@@ -2,11 +2,10 @@
 
 namespace App\Interfaces\BusinessLogics;
 
-use Illuminate\Http\Request;
+use App\Requests\Users\CreateRequest;
 use App\Models\MUser;
 
 interface CreateRepositoryInterface
 {
-    public function exec(Request $request, &$msg);
-    public function isEmailAuth(MUser $request, &$msg);
+    public function exec(CreateRequest $request, &$msg);
 }

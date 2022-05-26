@@ -44,7 +44,7 @@ class CreatePreRepository implements CreatePreRepositoryInterface
                 $request->email,
                 bcrypt($request->password),
                 MUser::EMAIL_VERIFIED_OFF,
-                hash(AppConstants::HASH_KEY_SHA256, uniqid(rand(), true)),
+                StrUtil::getUuid(),
                 new Carbon(),
             );
 

@@ -3,5 +3,9 @@
   &__inner {
     width: 700px;
     margin: 0 auto;
+    @include mq(sp){
+      width: 100%;
+      padding: 0 16px;
+    }
   }
 }

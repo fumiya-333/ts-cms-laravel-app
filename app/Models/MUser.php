@@ -85,30 +85,4 @@ class MUser extends Base
     public function scopeEmailPasswordResetTokenFindUser($query, $email_password_reset_token){
         return $query->where(self::COL_EMAIL_PASSWORD_RESET_TOKEN, $email_password_reset_token)->first();
     }
-
-    /**
-     * メールアドレス存在チェック
-     *
-     * @param  mixed $query クエリオブジェクト
-     * @param  mixed $email メールアドレス
-     * @return 存在チェックフラグ
-     */
-    public function scopeExistsEmail($query, $email){
-        return $query->where(self::COL_EMAIL, $email)->exists();
-    }
-
-    /**
-     * 本登録チェック
-     *
-     * @param  mixed $query クエリオブジェクト
-     * @param  mixed $user_id
-     * @return void
-     */
-    public function scopeIsEmailVerified($query, $email){
-        return $query->where([
-            self::COL_EMAIL_PASSWORD_RESET_VERIFIED => self::EMAIL_PASSWORD_RESET_VERIFIED_ON,
-            self::COL_EMAIL => $email
-        ])
-        ->exists();
-    }
 }

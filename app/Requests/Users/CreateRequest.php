@@ -3,9 +3,9 @@ namespace App\Requests\Users;
 
 use App\Requests\BaseRequest;
 use App\Models\MUser;
-use App\Rules\EmailExistsRule;
+use App\Rules\EmailCreateAuthRule;
 
-class PasswordResetPreRequest extends BaseRequest
+class CreateRequest extends BaseRequest
 {
     /**
      * ユーザーがこのリクエストの権限を持っているかを判断する
@@ -22,7 +22,7 @@ class PasswordResetPreRequest extends BaseRequest
      * @return array
      */
     public function rules(){
-        $this->req_rules[MUser::COL_EMAIL] = [self::VALIDATION_RULE_KEY_REQUIRED, MUser::COL_EMAIL, new EmailExistsRule($this->input(MUser::COL_EMAIL))];
+        $this->req_rules[MUser::COL_EMAIL] = [MUser::COL_EMAIL, new EmailCreateAuthRule($this->input(MUser::COL_EMAIL))];
         return $this->req_rules;
     }
 
@@ -32,7 +32,6 @@ class PasswordResetPreRequest extends BaseRequest
      * @return array
      */
     public function messages(){
-        $this->req_messages[MUser::COL_EMAIL . '.' . MUser::COL_EMAIL] = '有効な' . self::VALIDATION_ATTRIBUTE . self::ERR_MSG_REQUIRED;
         return $this->req_messages;
     }
 
@@ -43,5 +42,11 @@ class PasswordResetPreRequest extends BaseRequest
      */
     public function attributes(){
         return $this->req_attributes;
+    }
+
+    protected function prepareForValidation()
+    {
+        //getで取得したパラメータをmergeする。
+        $this->merge([MUser::COL_EMAIL_VERIFY_TOKEN => $this->route(MUser::COL_EMAIL_VERIFY_TOKEN)]);
     }
 }

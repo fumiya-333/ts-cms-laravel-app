@@ -418,6 +418,12 @@ th {
   width: 700px;
   margin: 0 auto;
 }
+@media screen and (max-width: 767px) {
+  .p-create-pre__inner {
+    width: 100%;
+    padding: 0 16px;
+  }
+}
 .p-create-pre__inner__form__inner label {
   padding: 42px 0 14px 0;
 }
@@ -439,6 +445,12 @@ th {
   width: 700px;
   margin: 0 auto;
 }
+@media screen and (max-width: 767px) {
+  .p-create__inner {
+    width: 100%;
+    padding: 0 16px;
+  }
+}
 
 .p-login {
   padding: 128px 0;
@@ -446,6 +458,12 @@ th {
 .p-login__inner {
   width: 700px;
   margin: 0 auto;
+}
+@media screen and (max-width: 767px) {
+  .p-login__inner {
+    width: 100%;
+    padding: 0 16px;
+  }
 }
 .p-login__inner__form__inner label {
   padding: 42px 0 14px 0;
@@ -476,6 +494,12 @@ th {
 .p-password-reset-pre__inner {
   width: 700px;
   margin: 0 auto;
+}
+@media screen and (max-width: 767px) {
+  .p-password-reset-pre__inner {
+    width: 100%;
+    padding: 0 16px;
+  }
 }
 .p-password-reset-pre__inner__form__inner label {
   padding: 42px 0 14px 0;

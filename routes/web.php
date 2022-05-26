@@ -9,7 +9,6 @@ use App\Http\Controllers\Users\PasswordResetPreController;
 
 Route::get('/', [LoginController::class, 'show']);
 Route::get(AppConstants::ROOT_DIR_USERS_CREATE_PRE, [CreatePreController::class, 'show']);
-Route::get(AppConstants::ROOT_DIR_USERS_CREATE, [CreatePreController::class, 'show']);
 Route::get(AppConstants::ROOT_DIR_USERS_PASSWORD_RESET_PRE, [PasswordResetPreController::class, 'show']);
 
 Route::post('/', [LoginController::class, 'login']);

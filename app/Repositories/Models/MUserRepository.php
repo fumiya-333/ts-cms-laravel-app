@@ -4,6 +4,7 @@ namespace App\Repositories\Models;
 
 use App\Interfaces\Models\MUserRepositoryInterface;
 use App\Models\MUser;
+use Carbon\Carbon;
 
 class MUserRepository implements MUserRepositoryInterface
 {
@@ -42,23 +43,13 @@ class MUserRepository implements MUserRepositoryInterface
     }
 
     /**
-     * メールアドレス存在チェック
+     * メールアドレスURLトークンに紐づくユーザー情報取得
      *
-     * @param  mixed $email メールアドレス
-     * @return void 存在チェックフラグ
+     * @param  mixed $email_verify_token メールアドレスURLトークン
+     * @return ユーザー情報
      */
-    public function existsEmail($email){
-        return MUser::existsEmail($email);
-    }
-
-    /**
-     * 本登録チェック
-     *
-     * @param  mixed $email メールアドレス
-     * @return void 本登録フラグ
-     */
-    public function isEmailVerified($email){
-        return MUser::isEmailVerified($email);
+    public function emailVerifyTokenFindUser($email_verify_token){
+        return MUser::emailVerifyTokenFindUser($email_verify_token);
     }
 
     /**
@@ -70,6 +61,21 @@ class MUserRepository implements MUserRepositoryInterface
      */
     public function updateEmailVerified($m_user, $request){
         $m_user->email_verified = MUser::EMAIL_VERIFIED_ON;
+        return $m_user->save();
+    }
+
+    /**
+     * パスワードリセット情報更新
+     *
+     * @param  mixed $m_user ユーザー情報
+     * @param  mixed $email_password_reset_verified パスワードリセットメール認証フラグ
+     * @param  mixed $email_password_reset_token パスワードリセットメールアドレスURLトークン
+     * @return void
+     */
+    public function updatePasswordReset($m_user, $email_password_reset_verified, $email_password_reset_token){
+        $m_user->email_password_reset_verified = $email_password_reset_verified;
+        $m_user->email_password_reset_token = $email_password_reset_token;
+        $m_user->email_password_reset_at = new Carbon();
         return $m_user->save();
     }
 }

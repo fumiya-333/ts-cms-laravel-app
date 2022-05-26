@@ -1,22 +1,11 @@
 <?php
-/**
- * メールアドレス登録バリデーションクラス
- *
- * @version 1.0
- * @author tsuji
- */
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 use App\Models\MUser;
 use App\Libs\AppConstants;
 
-/**
- * メールアドレス登録バリデーションクラス
- *
- * メールアドレス登録バリデーション処理を記載
- */
-class EmailRule implements Rule
+class EmailVerificationRule implements Rule
 {
     /** 仮登録済みのメールアドレス */
     const ERR_MSG_EMAIL_VERIFIED_OFF = "仮登録済のメールアドレスです。メールにて本登録を完了させて下さい。";
@@ -42,7 +31,7 @@ class EmailRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        if($this->m_user->count() > 0){
+        if($this->m_user->count()){
             if(!$this->m_user->email_verified){
                 $this->msg = self::ERR_MSG_EMAIL_VERIFIED_OFF;
                 return false;

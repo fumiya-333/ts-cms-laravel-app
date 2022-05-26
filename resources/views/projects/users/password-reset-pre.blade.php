@@ -1,7 +1,7 @@
 <div class="p-password-reset-pre">
     <div class="p-password-reset-pre__inner">
         @include('components.msg')
-        @component('components.form', ['url' => '', 'form_class' => 'p-password-reset-pre__inner__form', 'form_inner_class' => 'p-password-reset-pre__inner__form__inner'])
+        @component('components.form', ['url' => AppConstants::ROOT_DIR_USERS_PASSWORD_RESET_PRE, 'form_class' => 'p-password-reset-pre__inner__form', 'form_inner_class' => 'p-password-reset-pre__inner__form__inner'])
             @slot('form')
                 <label>メールアドレス</label>
                 <input type="email" name="email" class="c-input {{ $errors->has('email') ? 'u-error' : '' }}" value="{{ old('email') }}" placeholder="example@example.com">

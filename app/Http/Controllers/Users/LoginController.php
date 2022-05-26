@@ -32,7 +32,7 @@ class LoginController extends Controller
         if(Auth::attempt([MUser::COL_EMAIL => $request->email, MUser::COL_PASSWORD => $request->password])){
             return view(AppConstants::VIEW_PATH_USERS_INDEX);
         }else{
-            return Redirect::back()->with('error', self::ERR_MSG)->withInput();
+            return Redirect::back()->with(AppConstants::KEY_ERR, self::ERR_MSG)->withInput();
         }
     }
 }

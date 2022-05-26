@@ -1,11 +1,10 @@
 <?php
 namespace App\Http\Controllers\Users;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Libs\AppConstants;
 use App\Interfaces\BusinessLogics\CreateRepositoryInterface;
-use App\Requests\Users\CreatePreRequest;
+use App\Requests\Users\CreateRequest;
 use Redirect;
 
 class CreateController extends Controller
@@ -24,7 +23,7 @@ class CreateController extends Controller
      * @param  mixed $request リクエストパラメータ
      * @return void
      */
-    public function show(Request $request){
+    public function show(CreateRequest $request){
         $msg = "";
         if(!$this->create_repository->exec($request, $msg)){
             return view(AppConstants::VIEW_PATH_USERS_CREATE)->with(AppConstants::KEY_ERR, $msg);

@@ -20,8 +20,6 @@ class BaseRequest extends FormRequest
     **********************************************/
     /** 入力チェック */
     const VALIDATION_RULE_KEY_REQUIRED = 'required';
-    /** メールアドレス形式チェック */
-    const VALIDATION_RULE_KEY_EMAIL = 'email';
     /** パスワードとパスワード（確認用）一致チェック */
     const VALIDATION_RULE_KEY_CONFIRMD = 'confirmed';
     /** データ存在チェック */
@@ -29,4 +27,10 @@ class BaseRequest extends FormRequest
 
     /** バリデーションエラーのカスタム属性 */
     const VALIDATION_ATTRIBUTE = ':attribute';
+
+    protected $req_rules = [];
+
+    protected $req_messages = [];
+
+    protected $req_attributes = [];
 }
