@@ -30,6 +30,8 @@ class AppConstants {
     const ROOT_DIR_CREATE = 'create';
     /** パスワードリセット */
     const ROOT_DIR_PASSWORD_RESET = 'password-reset';
+    /** ホーム画面（Vue） */
+    const ROOT_DIR_HOME = 'home';
     /** 新規作成（仮） */
     const ROOT_DIR_CREATE_PRE = self::ROOT_DIR_CREATE . '-pre';
     /** パスワードリセット（仮） */

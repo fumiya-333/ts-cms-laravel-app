@@ -30,8 +30,7 @@ class LoginController extends Controller
      */
     public function login(LoginRequest $request){
         if(Auth::attempt([MUser::COL_EMAIL => $request->email, MUser::COL_PASSWORD => $request->password])){
-            // return view(AppConstants::VIEW_PATH_USERS_INDEX);
-            return redirect("home");
+            return redirect(AppConstants::ROOT_DIR_HOME);
         }else{
             return Redirect::back()->with(AppConstants::KEY_ERR, self::ERR_MSG)->withInput();
         }
