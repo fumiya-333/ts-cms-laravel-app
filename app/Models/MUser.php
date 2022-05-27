@@ -1,9 +1,9 @@
 <?php
 namespace App\Models;
 
-use App\Models\Base;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class MUser extends Base
+class MUser extends Authenticatable
 {
     /** テーブル名 */
     const TABLE_NAME = 'm_users';
